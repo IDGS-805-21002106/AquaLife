@@ -13,7 +13,6 @@ class WeatherViewModel : ViewModel() {
     private val _weather = MutableStateFlow<WeatherResponse?>(null)
     val weather: StateFlow<WeatherResponse?> = _weather
 
-    // Añade este StateFlow para errores
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error
 
@@ -21,11 +20,11 @@ class WeatherViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = RetrofitInstance.api.getCurrentWeather(
-                    apiKey = "846d69230b684d6385872512250307",  // Asegúrate de usar tu clave real
+                    apiKey = "846d69230b684d6385872512250307",
                     city = city
                 )
                 _weather.value = response
-                _error.value = null  // Limpia cualquier error previo
+                _error.value = null
             } catch (e: Exception) {
                 _error.value = "Error al obtener datos: ${e.message}"
                 e.printStackTrace()

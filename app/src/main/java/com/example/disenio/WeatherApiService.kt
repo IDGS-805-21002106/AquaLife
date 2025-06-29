@@ -9,6 +9,7 @@ interface WeatherApiService {
     @GET("current.json")
     suspend fun getCurrentWeather(
         @Query("key") apiKey: String,
-        @Query("q") city: String
+        @Query("q") city: String,
+        @Query("lang") lang: String = "es"
     ): WeatherResponse
 }
