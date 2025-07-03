@@ -57,7 +57,31 @@ fun AppEstadis() {
                 .padding(innerPadding)
         ) {
             item {
-                SeccionEstadis("AquaLife", colorPrimario)
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(colorPrimario)
+                        .padding(vertical = 16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "AquaLife",
+                        style = TextStyle(
+                            fontSize = 24.sp,
+                            color = MaterialTheme.colorScheme.onPrimary,
+                            fontFamily = miFuente
+                        )
+                    )
+                    Text(
+                        text = "Monitoreo de sistema de riego",
+                        style = TextStyle(
+                            fontSize = 14.sp,
+                            color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f),
+                            fontFamily = miFuente
+                        ),
+                        modifier = Modifier.padding(top = 8.dp)
+                    )
+                }
             }
             item {
                 InfoCardEstadis()
